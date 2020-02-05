@@ -208,6 +208,7 @@ In this step, you will configure the successFactors system to send message to th
 ![Project Details](./documentation/images/App.png)
 5. Click on a Project from the list.
 6. Click on Assign Employee.
+![Assign Employee](./documentation/images/AssignEmployee.png)
 7. All employees reporting to David Leal is displayed.
 8. Select 1 or more employees and assign them to projects
 9. Login to SF demo instance with sfadmin user.
