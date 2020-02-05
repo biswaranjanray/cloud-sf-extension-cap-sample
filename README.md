@@ -59,7 +59,7 @@ The Run Smooth application is developed using [SAP Cloud Application programming
 4. Check in your CF account that "default" service plan is available for Enterprise Messaging Service.
 5. Modify `"emname": "<yourmessageclientname>","namespace": "<yourorgname>/<yourmessageclientname>/<uniqueID>"` with necessary details in the “em.json” file.
 > The `<yourmessageclientname>` and `<uniqueID>` can be any random unique identifier. `<yourorgname>` would be your org name without '-' or any special character.  Please make sure that namespace does not exceed 24 characters. For more details regarding syntax, size and characters allowed in namespace are mentioned [here](https://help.sap.com/viewer/bf82e6b26456494cbdd197057c09979f/Cloud/en-US/5696828fd5724aa5b26412db09163530.html?q=namespace)
-6. Check if the Cloud Foundry Space you will be deploying the application has the following entitlements:
+6. Check if the Cloud Foundry Space you will be deploying the application has the following [entitlements](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/c8248745dde24afb91479361de336111.html):
 
 | Service                           | Plan       | Number of Instances |
 |-----------------------------------|------------|:-------------------:|
@@ -70,8 +70,8 @@ The Run Smooth application is developed using [SAP Cloud Application programming
 | SAP Hana Service                  | 64standard |          1          |
 | Application Runtime               |            |          3          |
 
-7. Create SAP Hana Service instance with plan 64standard as described [here](https://help.sap.com/viewer/cc53ad464a57404b8d453bbadbc81ceb/Cloud/en-US/21418824b23a401aa116d9ad42dd5ba6.html)
-> If there are multiple instances of SAP Hana Service in the space, please modify the  mta.yaml as shown below. Replace <database_guid> with the id of the databse you would like to bind the application with :
+7. Create SAP HANA Service instance with plan 64standard as described [here](https://help.sap.com/viewer/cc53ad464a57404b8d453bbadbc81ceb/Cloud/en-US/21418824b23a401aa116d9ad42dd5ba6.html)
+> If there are multiple instances of SAP HANA Service in the space where you plan to deploy this application, please modify the  mta.yaml as shown below. Replace <database_guid> with the id of the databse you would like to bind the application with :
  ```
  # Hana HDI Container
   - name: cloud-cap-xf-sf-db-hdi-container
@@ -115,8 +115,8 @@ The Run Smooth application is developed using [SAP Cloud Application programming
 7. Go to the tab `Queue`.
 ![Integration type](./documentation/images/queue.png)
 8. From the table, click on Icon for 'Subscription' (under Actions) for the Queue created when the application was deployed.
-9. From the pop-up window, please note the topic name for future reference (Step 5.8)
-10. Create Service Keys for Enterprise Messaging Service by following steps [here](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/cdf4f200db3e4c248fa67401937b2f78.html). Note down the clientid, clientsecret, tokenendpoint from the service key which is shown as a json.
+9. From the pop-up window, please note the topic name for future reference (Step 5.5.8)
+10. Create Service Keys for Enterprise Messaging Service by following steps [here](https://help.sap.com/viewer/bf82e6b26456494cbdd197057c09979f/Cloud/en-US/577ea7ce5cef4e2ea974c03d5549b3ff.html). Note down the client id, client secret, tokenendpoint and Base url from the service key which is shown as a json.
 
 ### Step 5: Setting up SuccessFactors system
 
@@ -172,9 +172,9 @@ In this step, you will configure the successFactors system to send message to th
    7. Keep the default settings for `Response field`, `Filter` tabs. Click Next
    8. Edit the `Destination Settings` with the following details:
 
-      REST API URL: give the URL of the queue
-      `https://enterprise-messaging-pubsub.cfapps.eu10.hana.ondemand.com/messagingrest/v1/topics/<topicName>/messages`
-      > Use the topic name from Step 4.9 after double encoding.
+      REST API URL: give the Base url of the queue which was copied from Enterprise Message Service Key in step 4.10
+     E.g For Europe Region Account it could be `https://enterprise-messaging-pubsub.cfapps.eu10.hana.ondemand.com/messagingrest/v1/topics/<topicName>/messages`
+      > For <topicName>, use the topic name copied in  Step 4.9. Note that the topic name  be used after double encoding.
       
       > For example, if your topic name is `sfext/sf/sample/myMessaging/d41d/sfemessage`, then the `/` should be replaced with `%252F`.
       The resultant topic name will be `sfext%252Fsf%252Fsample%252FmyMessaging%252Fd41d%252Fsfemessage`.
