@@ -42,7 +42,8 @@ The Run Smooth application is developed using [SAP Cloud Application programming
 * Install the following:
 	1. grunt 	- `npm install -g grunt-cli`
 	2. cds	 	- `npm install -g @sap/cds`
-	3. multiapps plugin - `cf install-plugin multiapps`
+	3. [multiapps plugin](https://github.com/cloudfoundry-incubator/multiapps-cli-plugin) - `cf install-plugin multiapps`  
+	4. mbt         -  `npm install -g mbt`
 
 ## Configuration
 
@@ -71,7 +72,7 @@ The Run Smooth application is developed using [SAP Cloud Application programming
 | Application Runtime               |            |          3          |
 
 7. Create SAP HANA Service instance with plan 64standard as described [here](https://help.sap.com/viewer/cc53ad464a57404b8d453bbadbc81ceb/Cloud/en-US/21418824b23a401aa116d9ad42dd5ba6.html)
-> If there are multiple instances of SAP HANA Service in the space where you plan to deploy this application, please modify the  mta.yaml as shown below. Replace <database_guid> with the id of the databse you would like to bind the application with :
+> If there are multiple instances of SAP HANA Service in the space where you plan to deploy this application, please modify the  mta.yaml as shown below. Replace <database_guid> with the [id of the databse](https://help.sap.com/viewer/cc53ad464a57404b8d453bbadbc81ceb/Cloud/en-US/93cdbb1bd50d49fe872e7b648a4d9677.html?q=guid) you would like to bind the application with :
  ```
  # Hana HDI Container
   - name: cloud-cap-xf-sf-db-hdi-container
@@ -103,6 +104,8 @@ The Run Smooth application is developed using [SAP Cloud Application programming
 	Navigate to mta_archives folder and run the below command from CLI
 
    `cf deploy cloud-cap-xf-sf_0.0.1.mtar`
+   
+   > Incase you need to deploy the application again, delete the sfextension-service instance and then deploy. 
 
 ### Step 4: Enterprise Messaging Application
 1. Follow the steps [here](https://help.sap.com/viewer/bf82e6b26456494cbdd197057c09979f/Cloud/en-US/d6389ec67f2e451b8d4cadc19c4bc369.html) to subscribe to the Enterprise Messaging Business Application
@@ -191,8 +194,9 @@ In this step, you will configure the successFactors system to send message to th
    10. In `Review and Run` tab - click on `Run now`
 
  6. Configuring the event flow. This step ensures that when the event is triggered, the integration created in the above step is run.
-   1. Click on `Go to ISC` button in the `Review and Run` screen of Integration center.
-   2. Add integration for the existing flow:
+   1. Search for intelligent service in the search bar.
+   2. Select Employment termination event
+   3. Add integration for the existing flow:
       - Click on `Integration` under `Activities`. (on the right-hand side corner)
       - Select the Integration created in the previous step. Click on `Add integration`.
       - Change the 'Timing' of the Integration to 'When the event is published' and save the flow (`Actions > Save Flow`).
