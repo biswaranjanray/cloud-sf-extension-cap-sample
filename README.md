@@ -214,14 +214,14 @@ In this step, you will configure the successFactors system to send message to th
 6. Click on Assign Employee.
 ![Assign Employee](./documentation/images/AssignEmployee.png)
 7. All employees reporting to David Leal is displayed.
-8. Select 1 or more employees and assign them to projects
+8. Select 1 or more employees and assign them to projects. E.g Simon Rampal(srampal)
 9. Login to SF demo instance with sfadmin user.
 ![step1](./documentation/images/step1.PNG)
 10. Search for Employee David Leal (dleal) in the Employee Directory
 11. Select Employee David Leal
 12. Click on Actions button and Select Org Chart
 ![step4](./documentation/images/step4.PNG)
-13. Choose an employee who is reporting to 'David Leal e.g Penelope Miller(pmiller) and assigned to the project in step 8
+13. Choose an employee who is reporting to 'David Leal e.g Simon Rampal(srampal) and assigned to the project in step 8
 14. Click on Take Actions button and Select Termination
 ![step6](./documentation/images/step6.PNG)
 15. Set values for
@@ -238,16 +238,16 @@ In this step, you will configure the successFactors system to send message to th
 20. Use Proxy Now functionality and Select Target User as Paul Atkins(patkins)
 ![step12](./documentation/images/step12.PNG)
 21. In the Home page of Paul Atkins click on tile Approve Requests
-22. Click on Approve button for the request for approval of Early Retirement of Penelope Miller
+22. Click on Approve button for the request for approval of Early Retirement of Simon Rampal
 ![step14](./documentation/images/step14.PNG)
 23. Use Proxy Now functonality and Select Target User as Tessa Walker(twalker)
 24. In the Home page of Tessa Walker click on tile Approve Requests
-25. Click on Approve button for the request for approval of Early Retirement of Penelope Miller
+25. Click on Approve button for the request for approval of Early Retirement of Simon Rampal
 26. Open the Web Application UI for Run Smooth application in browser.
 27. Login with user David Leal (dleal).
 28. Click on notifications tile.
 ![step20](./documentation/images/step20.PNG)
-29. Notification will be displayed regarding Resignation of Penelope Miller along with her Skillset.
+29. Notification will be displayed regarding Resignation of Simpon Rampal along with his Skillset.
 ![step21](./documentation/images/step21.PNG)
 
 ## Known Issues
